@@ -1,3 +1,6 @@
-<p>
-  login works!
-</p>
+<input type="text"
+       (input)="getUser($event.target.value)">
+<input type="password"
+       (input)="getPassword($event.target.value)">
+
+<a [routerLink]="['/home']">Login</a>
