@@ -1,1 +1,91 @@
-<p *ngFor="let employee of employees$ | async">{{employee.name}}</p>
+<div class="container">
+    <h1>HR Management</h1>
+    <div class="container-form">
+        <form [formGroup]="employeeForm"
+              #form="ngForm"
+              (ngSubmit)="addEmployee()">
+            <div class="form-group">
+                <label for="name">Name*</label>
+                <input type="text"
+                       maxlength="30"
+                       formControlName="name"
+                       class="form-control">
+                <small class="message-error"
+                       *ngIf="employeeForm.get('name').hasError('required') && form.submitted">
+                    Name is required.
+                </small>
+                <small class="message-error"
+                       *ngIf="employeeForm.get('name').hasError('minlength') && employeeForm.get('name').dirty">
+                    Minimum 3 characters.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="company">Company*</label>
+                <input type="text"
+                       maxlength="20"
+                       formControlName="company"
+                       class="form-control">
+                <small class="message-error"
+                       *ngIf="employeeForm.get('company').errors && form.submitted">
+                    Company is required.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text"
+                       maxlength="2"
+                       formControlName="age"
+                       class="form-control">
+                <small class="message-error"
+                       *ngIf="employeeForm.get('age').errors && employeeForm.get('age').dirty">
+                       Minimum age required is 18 years old.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="birthday">Birthday*</label>
+                <input type="date"
+                       formControlName="birthday"
+                       class="form-control">
+                <small class="message-error"
+                       *ngIf="employeeForm.get('birthday').errors && form.submitted">
+                       Birthday is required.
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="favoriteColor">Favorite Color</label>
+                <input type="text"
+                       formControlName="favoriteColor"
+                       class="form-control">
+            </div>
+            <button type="submit"
+                    class="btn btn-success">Save</button>
+        </form>
+    </div>
+    <div class="container-table">
+        <table>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Age</th>
+                <th>Birthday</th>
+                <th>Favorite Color</th>
+            </tr>
+            <tr *ngFor="let employee of employees; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.company}}</td>
+                <td>{{employee.age}}</td>
+                <td>{{employee.birthday | date:format}}</td>
+                <td>
+                    <div class="color"
+                         [style.background]='employee.favoriteColor'></div>
+                </td>
+                <td>
+                    <button (click)="deleteEmployee(employee.id)">X</button>
+                    <button (click)="editEmployee(employee.id)">Edit</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

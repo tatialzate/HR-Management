@@ -1,0 +1,38 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.container-form,
+.container-table {
+    width: 50%;
+    float: left;
+}
+
+.container-form {
+    width: 30%;
+    float: left;
+    padding: 4% 0%;
+}
+
+.container-table {
+    width: 70%;
+    float: left;
+    padding: 6% 0 8% 7%;
+    tr td:last-child {
+        border: none;
+    }
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+}

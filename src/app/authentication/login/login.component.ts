@@ -1,24 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Form, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
-  constructor(private router: Router) {
+  loginForm: FormGroup;
+
+  constructor(private router: Router, private fb: FormBuilder) {
+    this.createForm();
     sessionStorage.clear();
   }
-  getUser(user) {
-    sessionStorage.setItem('user', user);
+
+  createForm() {
+    this.loginForm = this.fb.group({
+      user: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
-  getPassword(password) {
-    sessionStorage.setItem('password', password);
+  saveCredentials() {
+    sessionStorage.setItem('user', this.loginForm.value.user);
+    sessionStorage.setItem('password', this.loginForm.value.password);
+    this.router.navigate(['/home']);
   }
 
-  ngOnInit() {
-    sessionStorage.removeItem('password');
-  }
+  ngOnInit() { }
 }

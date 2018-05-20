@@ -8,8 +8,8 @@ export class AppMockService implements InMemoryDbService {
     ];
 
     const employees = [
-      { id: 1, name: 'Santiago Alvarez', company: 'TODO1', age: 34, birthday: '15041984', favoriteColor: 'Azul' },
-      { id: 2, name: 'Melissa Sepulveda', company: 'YUXI', age: 25, birthday: '01071993', favoriteColor: 'Rosado' },
+      { id: 1, name: 'Santiago Alvarez', company: 'TODO1', age: 34, birthday: '1984-05-27', favoriteColor: 'aqua' },
+      { id: 2, name: 'Melissa Sepulveda', company: 'YUXI', age: 25, birthday: '1993-07-01', favoriteColor: 'pink' },
     ];
 
     // const projects = [

@@ -17,4 +17,15 @@ export class ResourceService {
       })
     );
   }
+
+  addRecord<T>(service: string, record: {}): Observable<T[]> {
+    this.http.post<T[]>(service, record).subscribe();
+    return this.getResources<T>(service);
+  }
+
+  deleteRecord<T>(service: string, id: string): Observable<T[]> {
+    const url = `${service}/${id}`;
+    this.http.delete<T[]>(url).subscribe(console.log);
+    return this.getResources<T>(service);
+  }
 }

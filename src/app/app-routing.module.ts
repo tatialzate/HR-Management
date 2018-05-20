@@ -10,20 +10,21 @@ const routes: Routes = [
     {
         path: 'home',
         loadChildren: './home/home.module#HomeModule',
-        canLoad: [AuthorizatedGuard]
+        // canLoad: [AuthorizatedGuard]
     },
     {
         path: 'employees',
         loadChildren: './employees/employees.module#EmployeesModule',
-        canLoad: [AuthorizatedGuard]
+        // canLoad: [AuthorizatedGuard]
     },
     {
         path: 'projects',
         loadChildren: './projects/projects.module#ProjectsModule',
-        canLoad: [AuthorizatedGuard]
+        // canLoad: [AuthorizatedGuard]
     },
     {
-        path: '', redirectTo: '/login', pathMatch: 'full'
+        // path: '', redirectTo: '/login', pathMatch: 'full'
+        path: '', redirectTo: '/employees', pathMatch: 'full'
     }
 ];
 
