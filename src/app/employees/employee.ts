@@ -1,5 +1,3 @@
-import { Project } from '../projects/project';
-
 export interface Employee {
     id: string;
     name: string;
@@ -7,5 +5,4 @@ export interface Employee {
     age: number;
     birthday: Date;
     favoriteColor: string;
-    project: Project;
 }
