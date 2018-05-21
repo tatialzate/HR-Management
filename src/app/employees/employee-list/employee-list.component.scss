@@ -29,10 +29,25 @@ th {
     padding: 6% 0 8% 7%;
     tr td:last-child {
         border: none;
+        display: inline-flex;
     }
 }
 
 .color {
     width: 20px;
     height: 20px;
+}
+
+.button {
+    width: 34px;
+    height: 34px;
+    background-repeat: no-repeat;
+}
+
+.button--delete {
+    background-image: url('../../../assets/img/delete-button.png')
+}
+
+.button--edit {
+    background-image: url('../../../assets/img/edit-button.png')
 }

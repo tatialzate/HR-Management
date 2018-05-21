@@ -26,9 +26,7 @@
                             "src/favicon.ico",
                             "src/assets"
                         ],
-                        "styles": [{
-                                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
-                            },
+                        "styles": [
                             "src/styles.scss"
                         ],
                         "scripts": []
@@ -75,9 +73,7 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "src/tsconfig.spec.json",
                         "karmaConfig": "src/karma.conf.js",
-                        "styles": [{
-                                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
-                            },
+                        "styles": [
                             "styles.scss"
                         ],
                         "scripts": [],

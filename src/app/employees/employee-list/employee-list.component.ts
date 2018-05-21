@@ -65,7 +65,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
           this.employees = data;
         });
 
-      this.createForm();
+      this.employeeForm.reset();
       this.subscriptions.push(addSubscription);
     }
   }

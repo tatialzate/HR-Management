@@ -1,5 +1,17 @@
 .container div {
-    width: 60%;
     text-align: center;
-    margin: 20% auto;
+    margin: 6% auto 0 auto;
+}
+
+span {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #1A547D;
+}
+
+.button--employees {
+    background-image: url('../../../assets/img/employees.png');
+    background-repeat: no-repeat;
+    width: 260px;
+    height: 265px;
 }

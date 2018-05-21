@@ -3,12 +3,13 @@ import { CanLoad, Route, Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CanActivate } from '@angular/router';
 
 @Injectable()
-export class AuthorizatedGuard implements CanLoad {
+export class AuthorizatedGuard implements CanActivate {
   constructor(private authService: AuthenticationService, private router: Router) { }
 
-  canLoad() {
+  canActivate() {
     const user: string = sessionStorage.getItem('user');
     const password: string = sessionStorage.getItem('password');
 

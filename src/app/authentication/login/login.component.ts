@@ -12,8 +12,6 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private router: Router, private fb: FormBuilder) {
-    this.createForm();
-    sessionStorage.clear();
   }
 
   createForm() {
@@ -24,10 +22,15 @@ export class LoginComponent implements OnInit {
   }
 
   saveCredentials() {
-    sessionStorage.setItem('user', this.loginForm.value.user);
-    sessionStorage.setItem('password', this.loginForm.value.password);
-    this.router.navigate(['/home']);
+    if (this.loginForm.valid) {
+      sessionStorage.setItem('user', this.loginForm.value.user);
+      sessionStorage.setItem('password', this.loginForm.value.password);
+      this.router.navigate(['/home']);
+    }
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.createForm();
+    sessionStorage.clear();
+  }
 }

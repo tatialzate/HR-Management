@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthorizatedGuard } from './core/guards/authorizated.guard';
+import { ErrorPageComponent } from './shared/components/error-page/error-page.component';
 
 const routes: Routes = [
     {
@@ -10,21 +11,18 @@ const routes: Routes = [
     {
         path: 'home',
         loadChildren: './home/home.module#HomeModule',
-        // canLoad: [AuthorizatedGuard]
+        canActivate: [AuthorizatedGuard]
     },
     {
         path: 'employees',
         loadChildren: './employees/employees.module#EmployeesModule',
-        // canLoad: [AuthorizatedGuard]
+        canActivate: [AuthorizatedGuard]
     },
     {
-        path: 'projects',
-        loadChildren: './projects/projects.module#ProjectsModule',
-        // canLoad: [AuthorizatedGuard]
+        path: '', redirectTo: '/login', pathMatch: 'full',
     },
     {
-        // path: '', redirectTo: '/login', pathMatch: 'full'
-        path: '', redirectTo: '/employees', pathMatch: 'full'
+        path: '**', component: ErrorPageComponent,
     }
 ];
 
