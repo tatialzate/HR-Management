@@ -27,6 +27,7 @@
         "jquery": "^3.3.1",
         "popper.js": "^1.14.3",
         "rxjs": "^6.0.0",
+        "uuid-v4": "^0.1.0",
         "zone.js": "^0.8.26"
     },
     "devDependencies": {
